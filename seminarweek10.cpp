@@ -167,7 +167,10 @@ void deletelement(int array[], int &size, int n)
     {
         if (array[i] == n)
         {
-            swap(array[i], array[size - 1]);
+            for (int j = i; j < size; j++)
+            {
+                array[j] = array[j + 1];
+            }
             size--;
         }
     }
@@ -214,7 +217,7 @@ int main()
     sortArray(array, size);
     printArray(array, size);
 
-    //Task 3
+    // //Task 3
     sortArray(array, size);
     sortArray(secondArray, secondSize);
     sortTwoArraysAndMerger(array, size, secondArray, secondSize, thirdArray, sizeOfNewArray);
@@ -235,13 +238,19 @@ int main()
         cout << "Not such index";
 
     //Task5
+    int size;
+    int array[10];
+    cout << "Enter size of array" << endl;
+    cin >> size;
+    array[size];
+    fillArray(array, size);
     int element;
     cout << "Enter element to delete";
     cin >> element;
     deletelement(array, size, element);
     printArray(array, size);
 
-    // //Task5 6
+    //Task5 6
     char firstString[256];
     char secondString[256];
     cin.getline(firstString, 256);
